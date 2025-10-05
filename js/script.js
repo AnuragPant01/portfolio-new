@@ -57,14 +57,28 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Parallax effect for hero section
+// Parallax effect for hero section (desktop only)
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero');
-    const speed = scrolled * 0.5;
-    
-    if (parallax) {
-        parallax.style.transform = `translateY(${speed}px)`;
+    // Only apply parallax on desktop devices
+    if (window.innerWidth > 768) {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.hero');
+        const heroHeight = parallax ? parallax.offsetHeight : 0;
+        
+        // Only apply parallax when hero is still visible
+        if (parallax && scrolled < heroHeight) {
+            const speed = scrolled * 0.3; // Reduced speed for smoother effect
+            parallax.style.transform = `translateY(${speed}px)`;
+        } else if (parallax) {
+            // Reset transform when hero is out of view
+            parallax.style.transform = 'translateY(0)';
+        }
+    } else {
+        // Reset transform on mobile
+        const parallax = document.querySelector('.hero');
+        if (parallax) {
+            parallax.style.transform = 'translateY(0)';
+        }
     }
 });
 
