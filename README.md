@@ -132,4 +132,4 @@ MIT License - feel free to use this template for your own portfolio!
 
 - **Email**: pantanurag1999@gmail.com
 - **LinkedIn**: [Anurag Pant](https://linkedin.com/in/anurag-pant-3a0474163)
-- **GitHub**: [anuragpant](https://github.com/AnuragPant01) 
+- **GitHub**: [AnuragPant01](https://github.com/AnuragPant01) 
